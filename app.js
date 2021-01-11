@@ -1,19 +1,15 @@
 const express = require("express");
 const app = express();
 
-let users = {
-    nome = "weverton",
-    email = "email@example.com"
+let usuarios = {
+    nome: "weverton",
+    email: "teste@exemplo.com"
 }
 
 app.get("/", function(req, res) {
-    res.send(users)
+    res.send(usuarios)
 })
 
-/*app.get("/", function(req, res){
-    res.send("Olá, mundo!")
-})*/
-
-app.listen(8082, function(){
-    console.log("Servidor rodando na url http://localhost:8082")
+app.listen(3001, function(){
+    console.log("Servidor rodando na url http://localhost:3001")
 })
