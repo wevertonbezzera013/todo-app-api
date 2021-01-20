@@ -1,19 +1,18 @@
-const usuariosController = require('./controllers/usuarios-controller')
-const tarefaController = require('./controllers/tarefa-controller')
-const express = require("express");
-const app = express();
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const port = 3001
 
-let obj = {}
+app.use(bodyParser.json())
 
+const usuario = require('./controllers/usuario-controller')
+const tarefa = require('./controllers/tarefa-controller')
 
+const db = require('./infra/bd')
 
-modificaObjeto(obj)
-console.log(obj)
+usuario(app, db)
+tarefa(app, db)
 
-app.get("/", function(req, res) {
-    res.send(usuarios)
-})
-
-app.listen(3001, function(){
-    console.log("Servidor rodando na url http://localhost:3001")
+app.listen(port, () => {
+    console.log(`Ouvindo em http://localhost:${port}`)
 })

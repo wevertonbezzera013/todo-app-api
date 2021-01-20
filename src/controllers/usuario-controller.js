@@ -1,13 +1,15 @@
-function modificaObjeto (objetoQualqueror){
-    objetoQualqueror.nome = "Weverton"
-    objetoQualqueror.curso = "webdev"
-}
-
-//const usuarios = new usuarios('Weverton', 20)
-
-function modificaObjeto(objetoQualqueror)  {
-    objetoQualqueror.get = ('path', (req, res) => {
-        res.send(objetoQualqueror)
+const Usuario = require('../models/usuario')
+module.exports = (app, db) => {
+    app.get('/usuarios', (req, res) => {
+        res.send('<h1>Usuarios</h1>')
     })
-    objetoQualqueror.curso = "webdev"
+
+    
+    app.post('/usuarios', (req, res) => {
+        const user = new Usuario(req.body.nome, req.body.email, req.body.senha)
+        db.usuarios.push(user)
+        console.log(db)
+        res.send('Ok')
+    })
+    
 }
