@@ -20,7 +20,7 @@ https://github.com/wevertonbezzera013/todo-app-api.git
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+Ferramentas
 
 * [Express](https://expressjs.com/pt-br/)
 * [Node](https://nodejs.org/en/)
